@@ -11,7 +11,7 @@ namespace Gisha.CrewmatesFarm.Core
         [Header("Tools")]
         [SerializeField] private Tool hoeTool;
 
-        public Vector3 MoveInput => new Vector3(joystick.Horizontal,0f, joystick.Vertical).normalized;
+        public Vector3 MoveInput => new Vector3(joystick.Horizontal, 0f, joystick.Vertical).normalized;
 
         private Rigidbody _rb;
 
@@ -22,16 +22,18 @@ namespace Gisha.CrewmatesFarm.Core
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-                hoeTool.Use();
-
             if (MoveInput.magnitude > 0)
-            transform.rotation = Quaternion.LookRotation(MoveInput);
+                transform.rotation = Quaternion.LookRotation(MoveInput);
         }
 
         private void FixedUpdate()
         {
             _rb.velocity = MoveInput * moveSpeed;
+        }
+
+        public void UseTool()
+        {
+            hoeTool.Use();
         }
 
         private void OnDrawGizmos()
