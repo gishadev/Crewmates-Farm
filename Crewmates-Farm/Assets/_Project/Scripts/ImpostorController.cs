@@ -24,6 +24,9 @@ namespace Gisha.CrewmatesFarm.Core
         {
             if (Input.GetKeyDown(KeyCode.Space))
                 hoeTool.Use();
+
+            if (MoveInput.magnitude > 0)
+            transform.rotation = Quaternion.LookRotation(MoveInput);
         }
 
         private void FixedUpdate()
