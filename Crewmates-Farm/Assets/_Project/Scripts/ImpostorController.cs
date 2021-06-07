@@ -8,6 +8,8 @@ namespace Gisha.CrewmatesFarm.Core
         [SerializeField] private Joystick joystick;
         [Header("Movement")]
         [SerializeField] private float moveSpeed = 10f;
+        [Header("Tools")]
+        [SerializeField] private Tool hoeTool;
 
         public Vector3 MoveInput => new Vector3(joystick.Horizontal,0f, joystick.Vertical).normalized;
 
@@ -20,7 +22,8 @@ namespace Gisha.CrewmatesFarm.Core
 
         private void Update()
         {
-            Debug.Log(MoveInput);
+            if (Input.GetKeyDown(KeyCode.Space))
+                hoeTool.Use();
         }
 
         private void FixedUpdate()
