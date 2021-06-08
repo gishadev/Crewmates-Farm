@@ -24,8 +24,11 @@ namespace Gisha.CrewmatesFarm.Core
             if (MoveInput.magnitude > 0)
                 transform.rotation = Quaternion.LookRotation(MoveInput);
 
+            ///////////////// FOR PC /////////////////
             if (Input.GetKeyDown(KeyCode.Space))
-                CurrentWeapon.Attack();
+                CurrentWeapon.Attack(transform.position, transform.forward);
+            ///////////////////////////////////////////////////
+            ///
 
             HandleAttackInput();
         }
@@ -37,7 +40,7 @@ namespace Gisha.CrewmatesFarm.Core
 
             Touch firstTouch = Input.GetTouch(0);
             if (firstTouch.phase == TouchPhase.Ended)
-                CurrentWeapon.Attack();
+                CurrentWeapon.Attack(transform.position, transform.forward);
         }
 
         private void FixedUpdate()

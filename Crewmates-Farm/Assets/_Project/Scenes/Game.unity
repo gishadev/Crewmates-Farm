@@ -2285,7 +2285,7 @@ GameObject:
   - component: {fileID: 2132668414}
   - component: {fileID: 2132668413}
   - component: {fileID: 2132668412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crewmate
   m_TagString: Untagged
   m_Icon: {fileID: 0}

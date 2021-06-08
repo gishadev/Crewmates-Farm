@@ -4,18 +4,32 @@ namespace Gisha.CrewmatesFarm.Core
 {
     public class Weapon
     {
-        public virtual void Attack()
+        protected LayerMask _whatIsAttackable = -1;
+
+        public virtual void Attack(Vector3 origin, Vector3 attackDirection)
         {
+            if (_whatIsAttackable == -1)
+                _whatIsAttackable = 1 << LayerMask.NameToLayer("Attackable");
+
             Debug.Log("Weapon used!");
         }
     }
 
     public class Stick : Weapon
     {
-        public override void Attack()
+        [SerializeField] private float attackRadius = 0.5f;
+        [SerializeField] private float attackDst = 1f;
+
+        public override void Attack(Vector3 origin, Vector3 attackDirection)
         {
-            base.Attack();
-            Debug.Log("Weapon is stick!");
+            base.Attack(origin, attackDirection);
+
+            Ray ray = new Ray(origin, attackDirection);
+            if (Physics.SphereCast(ray, attackRadius, out RaycastHit hitInfo, attackDst, _whatIsAttackable))
+            {
+                Debug.DrawRay(ray.origin, ray.direction * attackDst);
+                GameObject.Destroy(hitInfo.collider.gameObject);
+            }
         }
     }
 }
