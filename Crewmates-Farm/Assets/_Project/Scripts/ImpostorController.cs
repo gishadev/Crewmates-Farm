@@ -8,9 +8,8 @@ namespace Gisha.CrewmatesFarm.Core
         [SerializeField] private Joystick joystick;
         [Header("Movement")]
         [SerializeField] private float moveSpeed = 10f;
-        [Header("Tools")]
-        [SerializeField] private Tool hoeTool;
 
+        public Weapon CurrentWeapon = new Stick();
         public Vector3 MoveInput => new Vector3(joystick.Horizontal, 0f, joystick.Vertical).normalized;
 
         private Rigidbody _rb;
@@ -24,6 +23,21 @@ namespace Gisha.CrewmatesFarm.Core
         {
             if (MoveInput.magnitude > 0)
                 transform.rotation = Quaternion.LookRotation(MoveInput);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+                CurrentWeapon.Attack();
+
+            HandleAttackInput();
+        }
+
+        private void HandleAttackInput()
+        {
+            if (Input.touchCount == 0)
+                return;
+
+            Touch firstTouch = Input.GetTouch(0);
+            if (firstTouch.phase == TouchPhase.Ended)
+                CurrentWeapon.Attack();
         }
 
         private void FixedUpdate()
@@ -31,10 +45,6 @@ namespace Gisha.CrewmatesFarm.Core
             _rb.velocity = MoveInput * moveSpeed;
         }
 
-        public void UseTool()
-        {
-            hoeTool.Use();
-        }
 
         private void OnDrawGizmos()
         {

@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "4b36719a9905",
         "name": "com.Gisha.ImpostorsFarm",
-        "processId": 25279,
+        "processId": 19323,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -12,6 +12,36 @@
             "deviceId": "4b36719a9905",
             "name": "com.Gisha.ImpostorsFarm",
             "processId": 25279,
+            "exited": false
+        },
+        {
+            "deviceId": "4b36719a9905",
+            "name": "com.Gisha.ImpostorsFarm",
+            "processId": 2483,
+            "exited": false
+        },
+        {
+            "deviceId": "4b36719a9905",
+            "name": "com.Gisha.ImpostorsFarm",
+            "processId": 3472,
+            "exited": false
+        },
+        {
+            "deviceId": "4b36719a9905",
+            "name": "com.Gisha.ImpostorsFarm",
+            "processId": 4597,
+            "exited": false
+        },
+        {
+            "deviceId": "4b36719a9905",
+            "name": "com.Gisha.ImpostorsFarm",
+            "processId": 15672,
+            "exited": false
+        },
+        {
+            "deviceId": "4b36719a9905",
+            "name": "com.Gisha.ImpostorsFarm",
+            "processId": 19323,
             "exited": false
         }
     ],
