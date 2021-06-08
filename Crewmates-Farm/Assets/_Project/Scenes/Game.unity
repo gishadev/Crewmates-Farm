@@ -2068,7 +2068,7 @@ GameObject:
   - component: {fileID: 1970323676}
   m_Layer: 0
   m_Name: Impostor
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2301,11 +2301,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2132668411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b296bf0cddfb1884a9ad0a4754b24979, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c120152d402f6f4782c40522f9c15ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 904878385}
-  moveSpeed: 8
+  moveSpeed: 2
 --- !u!54 &2132668413
 Rigidbody:
   m_ObjectHideFlags: 0
